@@ -4,7 +4,7 @@ class Solution:
         ans = ''
         first = False
         for i in range(len(nums)):
-            if first == False and nums[i] == "6": 
+            if not first and nums[i] == "6": 
                 ans += '9'
                 first = True
                 continue
