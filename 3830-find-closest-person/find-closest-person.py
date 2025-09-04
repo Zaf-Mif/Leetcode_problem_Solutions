@@ -7,5 +7,5 @@ class Solution:
             return 1
         elif p1 > p2:
             return 2
-        elif p1 == p2:
+        else:
             return 0
