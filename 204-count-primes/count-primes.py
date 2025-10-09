@@ -2,12 +2,17 @@ class Solution(object):
     def countPrimes(self, n):
         if n <= 2:
             return 0
-        isPrime = [1 for _ in range(n)]
-        isPrime[0] = isPrime[1] = 0
-        for i in range(2, int(sqrt(n)) + 1):
+        isPrime = [True for _ in range(n)]
+        isPrime[0] = isPrime[1] = False
+        i = 2
+        while i <= sqrt(n):
             if isPrime[i]:
-                for j in range(i*i, n,i):
-                    isPrime[j] = 0
+                j = i * i
+                while j < n:
+                    isPrime[j] = False
+                    j += i
+            i += 1
+            
         cnt = 0
         for i in range(n):
             if isPrime[i]:
