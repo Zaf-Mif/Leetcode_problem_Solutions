@@ -5,7 +5,7 @@ class Solution(object):
         isPrime = [True for _ in range(n)]
         isPrime[0] = isPrime[1] = False
         i = 2
-        while i <= sqrt(n):
+        while i*i < n:
             if isPrime[i]:
                 j = i * i
                 while j < n:
