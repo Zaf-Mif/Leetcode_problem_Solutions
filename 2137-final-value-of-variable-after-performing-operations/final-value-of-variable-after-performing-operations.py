@@ -1,9 +1,8 @@
 class Solution:
     def finalValueAfterOperations(self, operations: List[str]) -> int:
         x = 0
-        for ch in operations:
-            if ch == "++X" or ch == "X++":
-                x += 1
-            else:
-                x -= 1
+        cnp = operations.count("++X") + operations.count("X++")
+        cnm = operations.count("--X") + operations.count("X--")
+        x += cnp
+        x -= cnm
         return x
