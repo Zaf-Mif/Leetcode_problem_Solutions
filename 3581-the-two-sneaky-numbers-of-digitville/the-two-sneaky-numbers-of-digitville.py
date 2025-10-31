@@ -1,11 +1,10 @@
 class Solution:
     def getSneakyNumbers(self, nums: List[int]) -> List[int]:
-        res = defaultdict(int)
+        hash = defaultdict(int)
+        for c in nums:
+            hash[c] += 1
         ans = []
-        for i in nums:
-            res[i] += 1
-        
-        for key,value in res.items():
+        for key, value in hash.items():
             if value == 2:
                 ans.append(key)
         return ans
