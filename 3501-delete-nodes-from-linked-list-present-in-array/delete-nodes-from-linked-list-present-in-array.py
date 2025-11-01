@@ -14,9 +14,8 @@ class Solution:
         while cur:
             if cur.val in nums:
                 prev.next = cur.next
-                cur = cur.next
             else:
                 prev = prev.next
-                cur = cur.next
+            cur = cur.next
         return dummy.next
 
