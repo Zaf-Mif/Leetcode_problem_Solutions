@@ -1,13 +1,14 @@
 class Solution:
     def kLengthApart(self, nums: List[int], k: int) -> bool:
-        continuos = k
-
-        for n in nums:
-            if n == 1:
-                if continuos < k:
+        idx = 0
+        first = True
+        for i in range(len(nums)):
+            print(idx)
+            if first == True and nums[i] == 1:
+                first = False
+                idx = i
+            elif nums[i] == 1 and first == False:
+                if (i - idx) - 1 < k :
                     return False
-                continuos = 0
-            else:
-                continuos += 1
-
+                idx = i
         return True
