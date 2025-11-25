@@ -1,11 +1,21 @@
 class Solution:
     def smallestRepunitDivByK(self, k: int) -> int:
-        if k % 2 == 0 or k % 5 == 0:
+        if k % 2 == 0 or k % 5 == 0 : # k==5
             return -1
-        rem = 0
-        l = 0
-        while True:
-            rem = (rem * 10 +1) % k
-            l += 1
-            if rem == 0:
-                return l
+        cnt = 1
+        ans = 1
+        while cnt % k != 0:
+            cnt = cnt * 10 + 1
+            ans+= 1
+
+        return ans
+
+                
+        
+                
+
+
+
+            
+
+        
