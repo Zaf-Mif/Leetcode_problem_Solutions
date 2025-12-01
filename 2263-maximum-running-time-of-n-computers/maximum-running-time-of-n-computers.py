@@ -1,13 +1,18 @@
 class Solution:
     def maxRunTime(self, n: int, batteries: List[int]) -> int:
-        batteries.sort()
-        extra = sum(batteries[:-n])
-        live = batteries[-n:]
+        left, right = 1, sum(batteries) // n
 
-        for i in range(n-1):
-            # when we try to distribute but it become less than there
-            if extra // (i+1) < live[i+1] - live[i]:
-                return live[i] + extra // (i+1)
-            extra -= ((i+1) * (live[i+1] - live[i]))
+
+        while left < right:
+            mid = right - (right - left) // 2
+
+            extra = 0   
+            for mn in batteries:
+                extra += min (mn, mid)
             
-        return extra // n + live[-1]
+            if extra // n >= mid:
+                left = mid
+            else:
+                right = mid - 1
+        
+        return left
