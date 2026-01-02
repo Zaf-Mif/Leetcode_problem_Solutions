@@ -7,7 +7,5 @@ class Solution:
         freq = defaultdict(int)
         for c in nums:
             freq[c] += 1
-        for key, value in freq.items():
-            if value == n:
-                return key
+        return next(key for key, value in freq.items() if value == n)
         
