@@ -1,18 +1,11 @@
 class Solution:
     def isSubsequence(self, s: str, t: str) -> bool:
-        Rows = len(s)
-        Cols = len(t)
-
-        dp = [[False] * (Cols + 1) for _ in range(Rows + 1)]
-
-        for j in range(Cols+1):
-            dp[0][j] = True
-
-        for i in range(1,Rows+1):
-            for j in range(1, Cols+1):
-                if s[i-1] in t[j-1]:
-                    dp[i][j] = dp[i-1][j-1]
-                else:
-                    dp[i][j] = dp[i][j-1]
-        print(dp)
-        return dp[Rows][Cols]
+        # Use two-pointer approach: O(m+n) time, O(1) space
+        # instead of DP: O(m*n) time, O(m*n) space
+        s_idx = 0
+        
+        for char in t:
+            if s_idx < len(s) and s[s_idx] == char:
+                s_idx += 1
+        
+        return s_idx == len(s)

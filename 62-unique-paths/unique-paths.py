@@ -1,12 +1,10 @@
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
-        Rows, Cols = m , n
-        dp = [[0] * (Cols+1) for i in range(Rows +1)]
-        for i in range(m):
-            dp[i][0] = 1
-        for j in range(n):
-            dp[0][j] = 1
-        for i in range(1, Rows):
-            for j in range(1, Cols):
-                dp[i][j] = dp[i-1][j] + dp[i][j-1]
-        return dp[Rows-1][Cols-1]
+        # Use a 1D DP array to reduce space complexity from O(m*n) to O(n)
+        dp = [1] * n
+        
+        for i in range(1, m):
+            for j in range(1, n):
+                dp[j] += dp[j-1]
+        
+        return dp[n-1]

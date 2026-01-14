@@ -8,6 +8,5 @@ class Solution:
         for i in range(n-1):
             if ratings[n-1-(i+1)]>ratings[n-1-i] and candies[n-1-(i+1)]<=candies[n-1-i]:
                 candies[n-1-(i+1)]=candies[n-1-i]+1
-        print(candies)
         
         return sum(candies)
