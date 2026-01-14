@@ -3,7 +3,6 @@ class Solution:
         idx = 0
         first = True
         for i in range(len(nums)):
-            print(idx)
             if first == True and nums[i] == 1:
                 first = False
                 idx = i

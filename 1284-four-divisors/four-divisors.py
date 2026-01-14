@@ -5,7 +5,6 @@ class Solution:
             d = 1
             while d * d <= n:
                 if n % d == 0:
-                    print(d)
                     cnt.add(d)
                     cnt.add(n // d)
                     if len(cnt) > 4:
